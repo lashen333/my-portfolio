@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-muted: var(--color-muted);
+  --color-card: var(--color-card);
+
+  --font-sans: var(--font-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #09090b;
+  /* Zinc 950 */
+  --foreground: #fafafa;
+  /* Zinc 50 */
+
+  /* Primary: Violet/Indigo Gradient Feel */
+  --color-primary: #8b5cf6;
+  /* Violet 500 */
+  --color-primary-dark: #7c3aed;
+  /* Violet 600 */
+
+  /* Secondary: Cyan/Blue */
+  --color-secondary: #06b6d4;
+  /* Cyan 500 */
+
+  /* Accent: Rose/Pink for subtle highlights */
+  --color-accent: #f43f5e;
+  /* Rose 500 */
+
+  --color-muted: #71717a;
+  /* Zinc 500 */
+  --color-card: rgba(24, 24, 27, 0.6);
+  /* Zinc 900 with opacity */
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass-card {
+    @apply bg-zinc-900/40 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+
+  .glass-nav {
+    @apply bg-zinc-950/70 backdrop-blur-lg border-b border-white/5;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-violet-400 to-cyan-400;
+  }
+
+  .section-padding {
+    @apply py-20 px-6;
+  }
 }
