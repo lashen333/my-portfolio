@@ -60,8 +60,8 @@ export default function Navbar() {
 
                 {/* CTA */}
                 <div className="hidden md:block">
-                    <Link href="/contact">
-                        <Button size="sm" variant="primary" className="rounded-full" id="get-in-touch">Get in Touch</Button>
+                    <Link href="/contact" id="get-in-touch">
+                        <Button size="sm" variant="primary" className="rounded-full" >Get in Touch</Button>
                     </Link>
                 </div>
 
